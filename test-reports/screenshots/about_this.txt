@@ -1,0 +1,1 @@
+The screenshots folder will house any screenshots you may take during test execution.
