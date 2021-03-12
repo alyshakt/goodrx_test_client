@@ -4,6 +4,8 @@ import datetime
 import pytest
 from selenium.webdriver.common.keys import Keys
 
+from page_objects.goodrx.locators import SearchPageLocators
+
 
 class BasePage(object):
     """Base page class to initialize the page class that will be called from all pages"""
@@ -57,3 +59,10 @@ class BasePage(object):
             self.take_screenshot('Failed')
         self.driver.quit()
 
+
+class SearchPage(BasePage):
+    """Inherit all the base page capabilities"""
+
+    def enter_search_text(self, text_to_enter):
+        element = SearchPageLocators.search_field(self)
+        self.enter_text(element, text_to_enter)

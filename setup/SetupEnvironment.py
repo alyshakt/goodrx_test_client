@@ -2,11 +2,17 @@
 This file is to set up the driver for a specific site.
 We want to make this scalable in case there could be multiple environments or web UI URLs we may want to hit.
 """
+import enum
 
 
-class SetupEnvironment(object):
+class Environment(enum.Enum):
+    """To standardize environment input and reduce human error"""
+    goodrx = 1
 
-    def get_app_url(Environment):
+
+class SetupEnvironment(Environment):
+
+    def get_app_url(self, Environment):
         """To define the environments / URLs we want to hit"""
         switcher = {
             Environment.goodrx: 'https://goodrx.com/'
@@ -17,6 +23,7 @@ class SetupEnvironment(object):
 
     def navigate_to_environment(self, driver, Environment):
         """To navigate to the appropriate URL"""
-        driver.get(self.get_app_url(Environment))
+        url = self.get_app_url(Environment)
+        driver.get(url)
         link = driver.current_url
         print('The current url is: {}'.format(link))
