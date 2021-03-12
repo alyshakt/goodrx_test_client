@@ -9,6 +9,7 @@ This project uses Selenium https://www.selenium.dev/ and Chrome or Firefox.
 
 I built this project to be able to run using pytest https://docs.pytest.org
 To run all tests, simply run `pytest tests -s` in the command line.
+To see logging output, add `log_cli=true` to your command.
 
 Find screenshots in test-reports/screenshots
 
@@ -23,7 +24,7 @@ To Run Headless with Chrome, open your test with the following code:
 	driver = webdriver.Chrome(chrome_options=options)
 ```
 To Run Headless with GeckoDriver, open your test with the following code:
-```
+```  
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 	  
 	    options = FirefoxOptions()
@@ -31,9 +32,9 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
         driver = webdriver.Firefox(options=options)
 ```
 
-You'll see a `SearchEngineType` class to define Enums for switching between types of search engines. This is simply an
+You'll see an `Environment` class to define Enums for switching between types of web apps. This is simply an
 example of how you could use Enums like this to standardize initial inputs and make things easier for testers to switch
-between websites, environments or anything else you can think of. This Enum is used in `web_app_setup.py` to define the
+between websites, environments or anything else you can think of. This Enum is used in `SetupEnvironment.py` to define the
 URL for the Enum and pass it on to navigate to that URL.
 
 Screenshots are automatically named by the created date and saved in PNG format, with the option to add a name to append
