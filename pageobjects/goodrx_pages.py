@@ -4,7 +4,7 @@ import datetime
 import pytest
 from selenium.webdriver.common.keys import Keys
 
-from pages.goodrx_locators import SearchPageLocators
+from pageobjects.goodrx_locators import SearchPageLocators
 
 
 class BasePage(object):

@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from page_objects.goodrx_pages import SearchPage, BasePage
+from pageobjects.goodrx_pages import SearchPage, BasePage
 from setup_environments.Environment import Environment
 from setup_environments.EnvironmentSetup import navigate_to_environment
 

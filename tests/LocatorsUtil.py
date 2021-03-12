@@ -1,15 +1,12 @@
 """Created by Alysha Kester-Terry 3/12/2021"""
+import logging
 # Define the default wait factor. I like doing between ~30-45 seconds especially to allow for page loading
 import time
-import logging
+
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 
 default_wait = 45
-
-
-def sleep_time(seconds_to_wait=5):
-    """Hard sleep if absolutely needed. Defaults to 5 seconds"""
-    time.sleep(seconds_to_wait)
 
 
 class BaseLocators(object):
@@ -24,6 +21,10 @@ class BaseLocators(object):
     This is particularly helpful in asserting that an element exists.
     Each function allows for an explicit max wait time to be passed through as some elements may need extra care for loading
     """
+
+    def sleep_time(self, seconds_to_wait=5):
+        """Hard sleep if absolutely needed. Defaults to 5 seconds"""
+        time.sleep(seconds_to_wait)
 
     def element_by_classname(self, identifier, wait_time=default_wait):
         timestamp = int(time.time())
@@ -42,7 +43,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def element_by_id(self, identifier, wait_time=default_wait):
@@ -62,7 +63,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def element_by_xpath(self, identifier, wait_time=default_wait):
@@ -82,7 +83,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def element_by_css(self, identifier, wait_time=default_wait):
@@ -102,7 +103,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def elements_by_css(self, identifier, wait_time=default_wait):
@@ -122,7 +123,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def elements_by_classname(self, identifier, wait_time=default_wait):
@@ -142,7 +143,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def elements_by_id(self, identifier, wait_time=default_wait):
@@ -162,7 +163,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def elements_by_xpath(self, identifier, wait_time=default_wait):
@@ -182,7 +183,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def element_by_name(self, identifier, wait_time=default_wait):
@@ -202,7 +203,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists
 
     def elements_by_name(self, identifier, wait_time=default_wait):
@@ -222,5 +223,5 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                sleep_time(2)
+                self.sleep_time(2)
         return exists

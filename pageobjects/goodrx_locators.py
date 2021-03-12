@@ -2,7 +2,7 @@
     This Base Page object locator strategy was gleaned with much gratitude from
     http://elementalselenium.com/tips/9-use-a-base-page-object in October 2020
 """
-from page_objects.LocatorsUtil import BaseLocators
+from tests.LocatorsUtil import BaseLocators
 
 
 class BasePageLocators(BaseLocators):
