@@ -1,3 +1,4 @@
+"""Created by Alysha Kester-Terry 3/12/2021"""
 # Define the default wait factor. I like doing between ~30-45 seconds especially to allow for page loading
 import time
 import logging
