@@ -11,7 +11,7 @@ def test_search(record_xml_attribute):
     fail = None
     # Setup Driver, define options
     options = Options()
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
     driver = webdriver.Chrome(chrome_options=options)
     search_page = SearchPage(driver)
     base_page = BasePage(driver)

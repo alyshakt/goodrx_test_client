@@ -1,5 +1,7 @@
 """Created by Alysha Kester-Terry 3/12/2021"""
 import datetime
+import logging
+import time
 
 import pytest
 from selenium.webdriver.common.keys import Keys
@@ -13,6 +15,10 @@ class BasePage(object):
     def __init__(self, driver):
         """Initialize the driver"""
         self.driver = driver
+
+    def sleep_time(self, seconds_to_wait=5):
+        """Hard sleep if absolutely needed. Defaults to 5 seconds"""
+        time.sleep(seconds_to_wait)
 
     def take_screenshot(self, name=None):
         """A screenshot util to take screenshots and save them to a test-reports folder inclusive of timestamp
@@ -64,5 +70,8 @@ class SearchPage(BasePage):
     """Inherit all the base page capabilities"""
 
     def enter_search_text(self, text_to_enter):
-        element = SearchPageLocators.search_field(self)
-        self.enter_text(element, text_to_enter)
+        try:
+            element = SearchPageLocators.search_field(self)
+            self.enter_text(element, text_to_enter)
+        except(AttributeError):
+            logging.warning('The element was not found.', exc_info=True)

@@ -35,8 +35,8 @@ class BaseLocators(object):
             exists = False
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
-                exists = bool(self.driver.find_element(By.CLASS_NAME, identifier))
-                print('We found the element? {}'.format(exists))
+                exists = self.driver.find_element(By.CLASS_NAME, identifier)
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -55,8 +55,8 @@ class BaseLocators(object):
             exists = False
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
-                exists = bool(self.driver.find_element(By.ID, identifier))
-                print('We found the element? {}'.format(exists))
+                exists = self.driver.find_element(By.ID, identifier)
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -76,7 +76,7 @@ class BaseLocators(object):
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_element(By.XPATH, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -91,12 +91,12 @@ class BaseLocators(object):
         try:
             exists = self.driver.find_element(By.CSS_SELECTOR, identifier)
         except NoSuchElementException as n:
-            print('The element could not be found by ClassName: {}'.format(identifier))
+            print('The element could not be found by CSS Selector: {}'.format(identifier))
             exists = False
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_element(By.CSS_SELECTOR, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -111,12 +111,12 @@ class BaseLocators(object):
         try:
             exists = self.driver.find_elements(By.CSS_SELECTOR, identifier)
         except NoSuchElementException as n:
-            print('The element could not be found by ClassName: {}'.format(identifier))
+            print('The elements could not be found by CSS Selector: {}'.format(identifier))
             exists = False
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_elements(By.CSS_SELECTOR, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -136,7 +136,7 @@ class BaseLocators(object):
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_elements(By.CLASS_NAME, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -156,7 +156,7 @@ class BaseLocators(object):
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_elements(By.ID, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -176,7 +176,7 @@ class BaseLocators(object):
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_elements(By.XPATH, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -196,7 +196,7 @@ class BaseLocators(object):
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_element(By.NAME, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:
@@ -216,7 +216,7 @@ class BaseLocators(object):
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
                 exists = self.driver.find_elements(By.NAME, identifier)
-                print('We found the element? {}'.format(exists))
+                print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
                 logging.warning('An exception was thrown!', exc_info=False)
             if exists:

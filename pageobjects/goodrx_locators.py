@@ -17,4 +17,4 @@ class SearchPageLocators(BasePageLocators):
     """Inherit any base page locators if there are any. Automatically inherits BaseLocators"""
 
     def search_field(self):
-        return BasePageLocators.element_by_classname(self, "XCUIElementTypeTabBar")
+        return BaseLocators.element_by_css(self, "[data-qa='search-inp']")
