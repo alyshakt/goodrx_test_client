@@ -9,6 +9,11 @@ from selenium.webdriver.common.by import By
 default_wait = 45
 
 
+def wait_for_seconds(seconds_to_wait=5):
+    """Hard sleep if absolutely needed. Defaults to 5 seconds"""
+    time.sleep(seconds_to_wait)
+
+
 class BaseLocators(object):
     """Initializes the driver for use on all other pages and defines objects that are on almost every page"""
 
@@ -21,10 +26,6 @@ class BaseLocators(object):
     This is particularly helpful in asserting that an element exists.
     Each function allows for an explicit max wait time to be passed through as some elements may need extra care for loading
     """
-
-    def sleep_time(self, seconds_to_wait=5):
-        """Hard sleep if absolutely needed. Defaults to 5 seconds"""
-        time.sleep(seconds_to_wait)
 
     def element_by_classname(self, identifier, wait_time=default_wait):
         timestamp = int(time.time())
@@ -43,7 +44,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def element_by_id(self, identifier, wait_time=default_wait):
@@ -63,7 +64,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def element_by_xpath(self, identifier, wait_time=default_wait):
@@ -83,7 +84,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def element_by_css(self, identifier, wait_time=default_wait):
@@ -103,7 +104,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def elements_by_css(self, identifier, wait_time=default_wait):
@@ -123,7 +124,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def elements_by_classname(self, identifier, wait_time=default_wait):
@@ -143,7 +144,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def elements_by_id(self, identifier, wait_time=default_wait):
@@ -163,7 +164,47 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
+        return exists
+
+    def nested_element_by_css(self, element, identifier):
+        timestamp = int(time.time())
+        try:
+            exists = element.find_element(By.CSS_SELECTOR, identifier)
+        except NoSuchElementException as n:
+            print('The element could not be found by CSS: {}'.format(identifier))
+            exists = False
+        while exists is False and (int(time.time()) - timestamp) < default_wait:
+            try:
+                exists = element.find_element(By.CSS_SELECTOR, identifier)
+                print('We found the element? {}'.format(bool(exists)))
+            except NoSuchElementException as n:
+                logging.warning('An exception was thrown!', exc_info=False)
+            if exists:
+                return exists
+            else:
+                print('Waiting for the element...')
+                wait_for_seconds(2)
+        return exists
+
+    def nested_element_by_xpath(self, element, identifier):
+        timestamp = int(time.time())
+        try:
+            exists = element.find_element(By.XPATH, identifier)
+        except NoSuchElementException as n:
+            print('The element could not be found by XPath: {}'.format(identifier))
+            exists = False
+        while exists is False and (int(time.time()) - timestamp) < default_wait:
+            try:
+                exists = element.find_element(By.XPATH, identifier)
+                print('We found the element? {}'.format(bool(exists)))
+            except NoSuchElementException as n:
+                logging.warning('An exception was thrown!', exc_info=False)
+            if exists:
+                return exists
+            else:
+                print('Waiting for the element...')
+                wait_for_seconds(2)
         return exists
 
     def elements_by_xpath(self, identifier, wait_time=default_wait):
@@ -171,7 +212,7 @@ class BaseLocators(object):
         try:
             exists = self.driver.find_elements(By.XPATH, identifier)
         except NoSuchElementException as n:
-            print('The element could not be found by XPath: {}'.format(identifier))
+            print('The elements could not be found by XPath: {}'.format(identifier))
             exists = False
         while exists is False and (int(time.time()) - timestamp) < wait_time:
             try:
@@ -183,7 +224,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def element_by_name(self, identifier, wait_time=default_wait):
@@ -203,7 +244,7 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
 
     def elements_by_name(self, identifier, wait_time=default_wait):
@@ -223,5 +264,5 @@ class BaseLocators(object):
                 return exists
             else:
                 print('Waiting for the element...')
-                self.sleep_time(2)
+                wait_for_seconds(2)
         return exists
