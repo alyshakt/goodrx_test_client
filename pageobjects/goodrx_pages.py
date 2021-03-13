@@ -2,8 +2,8 @@
 import datetime
 import logging
 import time
+
 import pytest
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 from pageobjects.goodrx_locators import SearchPageLocators

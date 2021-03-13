@@ -23,8 +23,11 @@ class SearchPageLocators(BasePageLocators):
         if element:
             action = ActionChains(self.driver)
             print('Clicking and holding on element...')
-            action.click_and_hold(on_element=element).perform()
-            action.release().perform()
+            action.click_and_hold(on_element=element)
+            action.perform()
+            self.sleep_time(2)
+            action.release()
+            action.perform()
 
 
     def search_field(self):
