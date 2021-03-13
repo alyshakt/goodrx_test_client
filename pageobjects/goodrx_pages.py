@@ -1,5 +1,4 @@
 """Created by Alysha Kester-Terry 3/12/2021"""
-import datetime
 import logging
 import time
 
@@ -40,11 +39,14 @@ class BasePage(object):
         """Click an element"""
         element.click()
 
+    def save_screenshot(self, name=None):
+        screenshot_util.take_screenshot(self.driver, name)
+
     def tear_down(self, failure):
         if failure is None:
-            screenshot_util.take_screenshot(self.driver, 'Pass')
+            self.save_screenshot('Pass')
         else:
-            screenshot_util.take_screenshot(self.driver, 'Failed')
+            self.save_screenshot('Failed')
         self.driver.quit()
 
     def get_page_src_info(self):
@@ -73,6 +75,7 @@ class SearchPage(BasePage):
     def select_first_result(self):
         self.sleep_time(2)
         element = SearchPageLocators.search_field(self)
+        self.save_screenshot('FirstResult')
         element.send_keys(Keys.RETURN)
 
     def get_list_options(self):
