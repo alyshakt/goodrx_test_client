@@ -19,7 +19,7 @@ class SearchPageLocators(BasePageLocators):
     """Inherit any base page locators if there are any. Automatically inherits BaseLocators"""
 
     def robot_killer(self):
-        element = BaseLocators.element_by_xpath(self, '//*[@id="px-captcha"]/iframe')
+        element = BaseLocators.element_by_xpath(self, '//*[@id="px-captcha"]/iframe', 5)
         if element:
             action = ActionChains(self.driver)
             print('Clicking and holding on element...')
