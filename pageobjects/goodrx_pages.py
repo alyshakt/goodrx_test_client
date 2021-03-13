@@ -2,8 +2,8 @@
 import datetime
 import logging
 import time
-
 import pytest
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 from pageobjects.goodrx_locators import SearchPageLocators
@@ -25,14 +25,15 @@ class BasePage(object):
         and able to take an explicit file name value"""
         created_date = str(datetime.datetime.utcnow().strftime("%m-%d-%H%M"))
         add_name = str(name).replace(' ', '')
-        file_name = 'test-reports/screenshots/' + add_name + created_date + '.png'
+        file_name = './test-reports/screenshots/' + add_name + created_date + '.png'
+        print('Saving screenshot to {}'.format(file_name))
         self.driver.save_screenshot(file_name)
 
     # Functional/Interaction with Page Elements
     def enter_text(self, element, text_to_enter):
         """Enter text into an element"""
         element.clear()
-        element.send_keys(text_to_enter + Keys.RETURN)
+        element.send_keys(text_to_enter)
 
     def get_element_text(self, element):
         """Get an element's text"""
@@ -69,9 +70,26 @@ class BasePage(object):
 class SearchPage(BasePage):
     """Inherit all the base page capabilities"""
 
+    def page_initiated(self):
+        SearchPageLocators.robot_killer(self)
+        return bool(SearchPageLocators.search_field(self))
+
     def enter_search_text(self, text_to_enter):
         try:
             element = SearchPageLocators.search_field(self)
             self.enter_text(element, text_to_enter)
         except(AttributeError):
             logging.warning('The element was not found.', exc_info=True)
+
+    def select_first_result(self):
+        self.sleep_time(2)
+        element = SearchPageLocators.search_field(self)
+        element.send_keys(Keys.RETURN)
+
+    def get_list_options(self):
+        element_list = SearchPageLocators.get_result_list(self)
+        for element in element_list:
+            print(self.get_element_text(element))
+
+    def wait_for_seconds(self, int):
+        self.sleep_time(int)

@@ -2,6 +2,8 @@
     This Base Page object locator strategy was gleaned with much gratitude from
     http://elementalselenium.com/tips/9-use-a-base-page-object in October 2020
 """
+from selenium.webdriver import ActionChains
+
 from tests.LocatorsUtil import BaseLocators
 
 
@@ -16,5 +18,17 @@ class BasePageLocators(BaseLocators):
 class SearchPageLocators(BasePageLocators):
     """Inherit any base page locators if there are any. Automatically inherits BaseLocators"""
 
+    def robot_killer(self):
+        element = BaseLocators.element_by_xpath(self, '//*[@id="px-captcha"]/iframe')
+        if element:
+            action = ActionChains(self.driver)
+            print('Clicking and holding on element...')
+            action.click_and_hold(on_element=element).perform()
+            action.release().perform()
+
+
     def search_field(self):
         return BaseLocators.element_by_css(self, "[data-qa='search-inp']")
+
+    def get_result_list(self):
+        return BaseLocators.elements_by_css(self, "aria-selected")
