@@ -6,6 +6,7 @@ import time
 import pytest
 from selenium.webdriver.common.keys import Keys
 
+import screenshot_util
 from pageobjects.goodrx_locators import SearchPageLocators
 
 
@@ -19,15 +20,6 @@ class BasePage(object):
     def sleep_time(self, seconds_to_wait=5):
         """Hard sleep if absolutely needed. Defaults to 5 seconds"""
         time.sleep(seconds_to_wait)
-
-    def take_screenshot(self, name=None):
-        """A screenshot util to take screenshots and save them to a test-reports folder inclusive of timestamp
-        and able to take an explicit file name value"""
-        created_date = str(datetime.datetime.utcnow().strftime("%m-%d-%H%M"))
-        add_name = str(name).replace(' ', '')
-        file_name = './test-reports/screenshots/' + add_name + created_date + '.png'
-        print('Saving screenshot to {}'.format(file_name))
-        self.driver.save_screenshot(file_name)
 
     # Functional/Interaction with Page Elements
     def enter_text(self, element, text_to_enter):
@@ -48,23 +40,20 @@ class BasePage(object):
         """Click an element"""
         element.click()
 
+    def tear_down(self, failure):
+        if failure is None:
+            screenshot_util.take_screenshot(self.driver, 'Pass')
+        else:
+            screenshot_util.take_screenshot(self.driver, 'Failed')
+        self.driver.quit()
+
     def get_page_src_info(self):
-        """Get a page source output"""
         source_hierarchy = self.driver.page_source
         return str(source_hierarchy)
 
     def process_failure(self, error):
-        """process a test failure, print the page source and fail the test"""
         print(self.get_page_src_info())
         pytest.fail('The test failed. {}'.format(error), True)
-
-    def tear_down(self, failure):
-        """If there was a failure, capture the moment the failure occurred, otherwise capture the pass, and quit the driver."""
-        if failure is None:
-            self.take_screenshot('Pass')
-        else:
-            self.take_screenshot('Failed')
-        self.driver.quit()
 
 
 class SearchPage(BasePage):

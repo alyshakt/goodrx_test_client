@@ -2,7 +2,6 @@
 This file is to set up the driver for a specific site.
 We want to make this scalable in case there could be multiple environments or web UI URLs we may want to hit.
 """
-from goodrx_pages import BasePage
 
 
 def get_app_url(Environment):

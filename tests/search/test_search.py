@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+import screenshot_util
 from pageobjects.goodrx_pages import SearchPage, BasePage
 from setup_environments.Environment import Environment
 from setup_environments.EnvironmentSetup import navigate_to_environment
@@ -18,6 +19,7 @@ suggestions dropdown that appears."""
     options.add_argument("disable-extensions")
     # options.add_argument('--headless')
     driver = webdriver.Chrome(chrome_options=options)
+
     search_page = SearchPage(driver)
     base_page = BasePage(driver)
     #
@@ -27,7 +29,7 @@ suggestions dropdown that appears."""
         navigate_to_environment(driver=driver, Environment=Environment.goodrx)
         assert search_page.page_initiated()
         search_page.enter_search_text(search_term)
-        base_page.take_screenshot(search_term)
+        screenshot_util.take_screenshot(driver, search_term)
         search_page.select_first_result()
         base_page.sleep_time(2)
     except (BaseException, Exception) as failure:
