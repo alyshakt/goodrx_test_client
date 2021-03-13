@@ -4,7 +4,7 @@
 """
 from selenium.webdriver import ActionChains
 
-from tests.LocatorsUtil import BaseLocators
+from LocatorsUtil import BaseLocators
 
 
 class BasePageLocators(BaseLocators):
