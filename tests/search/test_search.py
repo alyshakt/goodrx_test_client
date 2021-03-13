@@ -35,7 +35,7 @@ def test_search(record_xml_attribute):
         search_page.select_first_result()
         assert price_page.page_initiated()
         assert price_page.settings_panel_exists()
-        #For each price row with a Get Free Coupon or Get Free Discount,
+        # For each price row with a Get Free Coupon or Get Free Discount,
         # Click on the button and
         # verify that the price on the price row matches the one shown on the new page,
         # and the store name matches.
@@ -49,14 +49,19 @@ def test_search(record_xml_attribute):
                 store_price = this_result['price']
                 price_page.click_result_matching(store)
                 base_page.wait_for_seconds(5)
+                # results, coupon = base_page.get_tabs()
                 base_page.switch_tab()
                 base_page.save_screenshot('resultclicked')
                 assert coupon_page.page_initiated()
-                price_found = coupon_page.get_price().replace('$')
+                price_found = coupon_page.get_price().replace('$', '')
                 store_name = coupon_page.get_store_name().lower()
                 assert store_name == store.lower()
                 assert price_found == store_price
                 base_page.switch_tab()
+                base_page.close_child_tabs()
+                base_page.wait_for_seconds(2)
+
+                # base_page.switch_tab(results)
 
                 # base_page.navigate_back()
 

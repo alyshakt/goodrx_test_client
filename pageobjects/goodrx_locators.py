@@ -73,7 +73,14 @@ class CouponPageLocators(BasePageLocators):
         return BaseLocators.element_by_css(self, "[data-qa='clipping']")
 
     def price(self):
-        return BaseLocators.element_by_css(self,"[data-qa='coupon_price']")
+        return BaseLocators.element_by_css(self, "[data-qa='coupon_price']")
+
+    def price_info_section(self):
+        return BaseLocators.element_by_css(self, "[data-qa='coupon_content_price_info']")
 
     def store_name(self):
-        return BaseLocators.element_by_css(self,"[data-qa='coupon_pharmacy_name']")
+        return BaseLocators.element_by_css(self, "[data-qa='coupon_pharmacy_name']")
+
+    def indexed_prices(self):
+        element = BaseLocators.element_by_css(self, "[data-qa='coupon_content_price_info']")
+        return BaseLocators.nested_elements_by_css(self, element, 'div > span')

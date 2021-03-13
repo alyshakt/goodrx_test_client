@@ -32,18 +32,33 @@ class BasePage(object):
         coordinates = element.location_once_scrolled_into_view  # returns dict of X, Y coordinates
         self.driver.execute_script('window.scrollTo({}, {});'.format(coordinates['x'], coordinates['y']))
 
-    def switch_tab(self):
-        # from https://www.browserstack.com/guide/how-to-switch-tabs-in-selenium-python
-        # prints parent window title
+    def get_tabs(self):
         print("Parent window title: " + self.driver.title)
         # get current window handle
-        p = self.driver.current_window_handle
-        # get first child window
-        chwd = self.driver.window_handles
-        for w in chwd:
-            # switch focus to child window
-            if (w != p):
-                self.driver.switch_to.window(w)
+        parent_handle = self.driver.current_window_handle
+        child_handles = None
+        try:
+            # from https://www.browserstack.com/guide/how-to-switch-tabs-in-selenium-python
+
+            # get first child window
+            child_handles = self.driver.window_handles
+        except (BaseException, Exception) as n:
+            logging.warning('An exception occurred: {}'.format(n), True)
+        return parent_handle, child_handles
+
+    def close_child_tabs(self):
+        parent, children = self.get_tabs()
+        for child in children:
+            if child != parent:
+                self.driver.switch_to.window(child)
+                self.driver.close()
+        self.driver.switch_to.window(parent)
+
+    def switch_tab(self):
+        parent, children = self.get_tabs()
+        for child in children:
+            if child != parent:
+                self.driver.switch_to.window(child)
                 break
 
     def click_element(self, element):
@@ -73,6 +88,9 @@ class BasePage(object):
 
     def wait_for_seconds(self, int):
         LocatorsUtil.wait_for_seconds(int)
+
+    def refresh_screen(self):
+        self.driver.refresh()
 
 
 class SearchPage(BasePage):
@@ -196,7 +214,7 @@ class PricePage(BasePage):
             price_info = self.get_element_text(price)
             info_button = PricePageLocators.nested_row_button(self, this_row)
             if match_data in store_info or match_data in price_info:
-                print('Found matching result {}{} at index {}'.format(store, price, row))
+                print('Found matching result {}{} at index {}'.format(store_info, price_info, row))
                 self.scroll_to_element(this_row)
                 self.click_element(info_button)
                 self.save_screenshot(match_data)
@@ -214,8 +232,15 @@ class CouponPage(BasePage):
 
     def get_price(self):
         element = CouponPageLocators.price(self)
-        return self.get_element_text(element)
+        prices = CouponPageLocators.indexed_prices(self)
+        price_text_list = []
+        if element:
+            price_text_list.append(self.get_element_text(element).replace('$', ''))
+        else:
+            for price in prices:
+                price_text_list.append(self.get_element_text(price).replace('$', '') + ' or ')
+        return ''.join(price_text_list)
 
     def get_store_name(self):
         element = CouponPageLocators.store_name(self)
-        return self.get_element_text(element)
+        return self.get_element_text(element).replace('at ', '')
