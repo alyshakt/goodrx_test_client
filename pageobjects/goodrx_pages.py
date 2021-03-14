@@ -5,7 +5,6 @@ import pytest
 from selenium.webdriver.common.keys import Keys
 
 import LocatorsUtil
-import ReportUtil
 import screenshot_util
 from LocatorsUtil import wait_for_seconds
 from pageobjects.goodrx_locators import SearchPageLocators, PricePageLocators, CouponPageLocators, BasePageLocators

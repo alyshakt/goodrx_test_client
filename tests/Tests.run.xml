@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="Test Runner" type="tests" factoryName="py.test" singleton="false">
+    <configuration default="false" name="Tests" type="tests" factoryName="Unittests" singleton="false">
         <module name="goodrx_test_client"/>
         <option name="INTERPRETER_OPTIONS" value=""/>
         <option name="PARENT_ENVS" value="true"/>
@@ -8,11 +8,10 @@
         <option name="IS_MODULE_SDK" value="true"/>
         <option name="ADD_CONTENT_ROOTS" value="true"/>
         <option name="ADD_SOURCE_ROOTS" value="true"/>
-        <option name="_new_keywords" value="&quot;&quot;"/>
-        <option name="_new_parameters" value="&quot;&quot;"/>
+        <option name="_new_pattern" value="&quot;&quot;"/>
         <option name="_new_additionalArguments"
-                value="&quot;--environment\u003d\u0027Prod\u0027 -s -o log_cli\u003dtrue --html\u003dtest-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html&quot;"/>
-        <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/search/test_amoxicillin.py&quot;"/>
+                value="&quot;--environment\u003d\u0027prod\u0027 -s -o log-cli\u003dtrue&quot;"/>
+        <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;"/>
         <option name="_new_targetType" value="&quot;PATH&quot;"/>
         <method v="2"/>
     </configuration>
