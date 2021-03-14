@@ -18,7 +18,7 @@ def test_search_amoxicillin(environment, record_xml_attribute):
     # Setup Driver, define options - Ideally put this in a more dynamic situation so you could pass arguments
     # to define these. But this does the job.
     options = Options()
-    options.add_argument("headless")
+    # options.add_argument("headless")
     options.add_argument("disable-popup-blocking")
     options.add_argument("enable-javascript")
     options.add_argument("disable-extensions")

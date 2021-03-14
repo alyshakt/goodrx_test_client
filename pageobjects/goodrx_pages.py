@@ -64,7 +64,10 @@ class BasePage(object):
 
     def click_element(self, element):
         """Click an element"""
-        element.click()
+        try:
+            element.click()
+        except (Exception, BaseException) as n:
+            logging.error('Could not click on the element {}'.format(n), True)
 
     def save_screenshot(self, name=None):
         screenshot_util.take_screenshot(self.driver, name)
@@ -93,7 +96,7 @@ class BasePage(object):
         else:
             self.save_screenshot('Passed')
             logging.warning('PASSED')
-        ReportUtil.pytest_runtest_makereport()
+        # TODO ReportUtil.pytest_runtest_makereport()
         self.driver.quit()
 
     def handle_popups(self):

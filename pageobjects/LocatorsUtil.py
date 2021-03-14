@@ -167,7 +167,7 @@ class BaseLocators(object):
                 wait_for_seconds(2)
         return exists
 
-    def nested_element_by_css(self, element, identifier):
+    def nested_element_by_css(self, element, identifier, wait_time=5):
         timestamp = int(time.time())
         try:
             exists = element.find_element(By.CSS_SELECTOR, identifier)
