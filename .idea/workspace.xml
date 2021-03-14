@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="As much as could be done within two days, and I believe this will show my technical abilities adequately.">
-      <change afterPath="$PROJECT_DIR$/.idea/goodrx_test_client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Add idea stuff in case" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -362,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615689478634</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Add idea stuff in case">
+      <created>1615689634983</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1615689634983</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -393,7 +394,8 @@
     <MESSAGE value="Add new steps and locators" />
     <MESSAGE value="Refactor Environmet to App / AppSetup due to integration of environment variable in conftest.py" />
     <MESSAGE value="As much as could be done within two days, and I believe this will show my technical abilities adequately." />
-    <option name="LAST_COMMIT_MESSAGE" value="As much as could be done within two days, and I believe this will show my technical abilities adequately." />
+    <MESSAGE value="Add idea stuff in case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add idea stuff in case" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
