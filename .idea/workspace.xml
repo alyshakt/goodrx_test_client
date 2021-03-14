@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Add idea stuff in case" />
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Add idea stuff in case">
+      <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/search" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -66,9 +68,9 @@
       <command value="pip3 install pytest" />
       <command value="mvn clean" />
       <command value="pytest tests/landwatch -s " />
-      <command value="pytest --collect-only" />
       <command value="pip uninstall pytest-html" />
       <command value="pip3 install -r requirements.txt" />
+      <command value="pytest --collect-only" />
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Test Runner">
@@ -363,7 +365,28 @@
       <option name="project" value="LOCAL" />
       <updated>1615689634983</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add idea stuff in case">
+      <created>1615689781416</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1615689781416</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add idea stuff in case">
+      <created>1615690187396</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1615690187396</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add idea stuff in case">
+      <created>1615690226218</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1615690226218</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,5 +423,8 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/goodrx_test_client$_Users_akesterterry_goodrx_test_client.ic" NAME="$PROJECT_DIR$/../goodrx_test_client Coverage Results" MODIFIED="1615690118238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

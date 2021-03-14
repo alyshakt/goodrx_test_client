@@ -1,5 +1,6 @@
 import datetime
 
+
 def take_screenshot(driver, name=None):
     created_date = str(datetime.datetime.utcnow().strftime("%m-%d-%H%M"))
     add_name = str(name).replace(' ', '')
