@@ -5,9 +5,10 @@ import pytest
 from selenium.webdriver.common.keys import Keys
 
 import LocatorsUtil
+import ReportUtil
 import screenshot_util
 from LocatorsUtil import wait_for_seconds
-from pageobjects.goodrx_locators import SearchPageLocators, PricePageLocators, CouponPageLocators
+from pageobjects.goodrx_locators import SearchPageLocators, PricePageLocators, CouponPageLocators, BasePageLocators
 
 
 class BasePage(object):
@@ -68,20 +69,9 @@ class BasePage(object):
     def save_screenshot(self, name=None):
         screenshot_util.take_screenshot(self.driver, name)
 
-    def tear_down(self, failure):
-        if failure is None:
-            self.save_screenshot('Pass')
-        else:
-            self.save_screenshot('Failed')
-        self.driver.quit()
-
     def get_page_src_info(self):
         source_hierarchy = self.driver.page_source
         return str(source_hierarchy)
-
-    def process_failure(self, error):
-        print(self.get_page_src_info())
-        pytest.fail('The test failed. {}'.format(error), True)
 
     def navigate_back(self):
         self.driver.back()
@@ -92,13 +82,38 @@ class BasePage(object):
     def refresh_screen(self):
         self.driver.refresh()
 
+    def process_failure(self, error):
+        pytest.fail('The test failed. {}'.format(error), False)
+
+    def tear_down(self, failure):
+        if failure is not None:
+            logging.error('The workflow failures if any are: {}'.format(failure))
+            self.save_screenshot('Failed')
+            self.process_failure(failure)
+        else:
+            self.save_screenshot('Passed')
+            logging.warning('PASSED')
+        ReportUtil.pytest_runtest_makereport()
+        self.driver.quit()
+
+    def handle_popups(self):
+        BasePageLocators.robot_killer(self)
+        gold, newsletter, otc = BasePageLocators.popups(self)
+        if gold:
+            self.click_element(gold)
+        if newsletter:
+            self.click_element(newsletter)
+        if otc:
+            self.click_element(otc)
+
 
 class SearchPage(BasePage):
     """Search Page: Inherit all the base page capabilities"""
 
     def page_initiated(self):
-        SearchPageLocators.robot_killer(self)
-        self.save_screenshot('SearchPage')
+        self.handle_popups()
+        pagetitle = self.driver.title
+        self.save_screenshot(pagetitle)
         return bool(SearchPageLocators.search_field(self))
 
     def enter_search_text(self, text_to_enter):
@@ -111,7 +126,7 @@ class SearchPage(BasePage):
     def select_first_result(self):
         wait_for_seconds(2)
         element = SearchPageLocators.search_field(self)
-        self.save_screenshot('FirstResult')
+        self.save_screenshot('results')
         element.send_keys(Keys.RETURN)
 
 
@@ -119,8 +134,10 @@ class PricePage(BasePage):
     """Price Page: Inherit all the base page capabilities"""
 
     def page_initiated(self):
+        self.handle_popups()
         element = PricePageLocators.rx_settings_panel(self)
-        self.save_screenshot('PricePage')
+        pagetitle = self.driver.title
+        self.save_screenshot(pagetitle)
         return bool(element)
 
     def settings_panel_exists(self):
@@ -139,15 +156,15 @@ class PricePage(BasePage):
             rows_data.append(self.get_element_text(name))
         return rows_data
 
-    def get_store_list(self):
-        elements = PricePageLocators.store_names(self)
-        store_list_names = list()
+    def get_pharmacy_list(self):
+        elements = PricePageLocators.pharmacy_names(self)
+        pharmacy_names = list()
         for name in elements:
             prepped_name = self.get_element_text(name).split(':\n')[1].replace('\n.', '')
             if '\n' in prepped_name:
                 prepped_name = prepped_name.split('\n')[0]
-            store_list_names.append(prepped_name)
-        return store_list_names
+            pharmacy_names.append(prepped_name)
+        return pharmacy_names
 
     def get_drug_prices(self):
         elements = PricePageLocators.drug_prices(self)
@@ -172,9 +189,9 @@ class PricePage(BasePage):
         print('{}'.format(drug_price_data_dict))
         return drug_price_data_dict
 
-    def get_stores_and_prices(self):
+    def get_pharmacies_and_prices(self):
         final_data_dict = []
-        stores = PricePageLocators.store_names(self)
+        stores = PricePageLocators.pharmacy_names(self)
         drug_prices = PricePageLocators.drug_prices(self)
         assert len(stores) == len(drug_prices)
         for index in range(len(stores)):
@@ -192,8 +209,8 @@ class PricePage(BasePage):
             price = split_data[1]
             if '\n' in price:
                 price = price.split('\n')[0]
-            final_data_dict.append({"storePrice": {
-                "store": prepped_store_name,
+            final_data_dict.append({"pharmacyPrices": {
+                "pharmacy": prepped_store_name,
                 "price": price,
                 "priceType": price_type
             }})
@@ -202,32 +219,38 @@ class PricePage(BasePage):
         return final_data_dict
 
     def click_result_matching(self, match_data):
-        stores = PricePageLocators.store_names(self)
+        found_match = False
+        pharmacies = PricePageLocators.pharmacy_names(self)
         drug_prices = PricePageLocators.drug_prices(self)
         price_rows = PricePageLocators.price_rows(self)
-
+        match_data = match_data.lower()
         for row in range(len(price_rows)):
             this_row = price_rows[row]
-            store = stores[row]
+            pharmacy = pharmacies[row]
             price = drug_prices[row]
-            store_info = self.get_element_text(store)
-            price_info = self.get_element_text(price)
+            pharmacy_info = self.get_element_text(pharmacy).replace('\n', '').lower()
+            price_info = self.get_element_text(price).replace('\n', '')
+            print('Searching for a match...')
             info_button = PricePageLocators.nested_row_button(self, this_row)
-            if match_data in store_info or match_data in price_info:
-                print('Found matching result {}{} at index {}'.format(store_info, price_info, row))
+            if match_data in pharmacy_info or match_data in price_info:
+                print('Found matching result {}{}'.format(pharmacy_info, price_info, row))
+                found_match = bool(this_row)
                 self.scroll_to_element(this_row)
                 self.click_element(info_button)
                 self.save_screenshot(match_data)
+        return found_match
+
+    def get_drug_title(self):
+        return self.get_element_text(SearchPageLocators.drug_title(self))
 
 
 class CouponPage(BasePage):
     """Coupon Page actions"""
 
     def page_initiated(self):
-        popup = CouponPageLocators.popup_closure(self)
-        if popup:
-            self.click_element(popup)
-        self.save_screenshot('couponpage')
+        self.handle_popups()
+        pagetitle = self.driver.title
+        self.save_screenshot(pagetitle)
         return bool(CouponPageLocators.clipping(self))
 
     def get_price(self):
@@ -239,8 +262,15 @@ class CouponPage(BasePage):
         else:
             for price in prices:
                 price_text_list.append(self.get_element_text(price).replace('$', '') + ' or ')
-        return ''.join(price_text_list)
+        return price_text_list
 
-    def get_store_name(self):
-        element = CouponPageLocators.store_name(self)
-        return self.get_element_text(element).replace('at ', '')
+    def get_pharmacy_name(self):
+        element = CouponPageLocators.pharmacy_name(self)
+        pharmacies = CouponPageLocators.indexed_pharmacies(self)
+        pharmacies_text_list = []
+        if element:
+            pharmacies_text_list.append(self.get_element_text(element).replace('at ', '').lower())
+        else:
+            for pharmacy in pharmacies:
+                pharmacies_text_list.append(self.get_element_text(pharmacy).lower().replace('at ', '') + ' ')
+        return pharmacies_text_list

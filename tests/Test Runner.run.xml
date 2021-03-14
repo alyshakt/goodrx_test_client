@@ -10,8 +10,8 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <option name="_new_keywords" value="&quot;&quot;" />
     <option name="_new_parameters" value="&quot;&quot;" />
-    <option name="_new_additionalArguments" value="&quot;-o log_cli\u003dtrue --junitxml\u003dtest-reports/search_run_junit.xml &quot;" />
-    <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/search/test_search.py&quot;" />
+    <option name="_new_additionalArguments" value="&quot;--environment\u003d\u0027Prod\u0027 -s -o log_cli\u003dtrue --html\u003dtest-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html&quot;" />
+    <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/search/test_amoxicillin.py&quot;" />
     <option name="_new_targetType" value="&quot;PATH&quot;" />
     <method v="2" />
   </configuration>
