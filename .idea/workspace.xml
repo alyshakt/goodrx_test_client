@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Fix .lower() bug">
+      <change afterPath="$PROJECT_DIR$/page_objects/page_objects.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/page_objects/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/goodrx_test_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/goodrx_test_client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/pageobjects/goodrx_locators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/LocatorsUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/LocatorsUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/ReportUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/ReportUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/goodrx_locators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/goodrx_pages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/screenshot_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/screenshot_util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Test Runner.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Test Runner.run.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_advil_otc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_advil_otc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_controlled.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_controlled.py" afterDir="false" />
@@ -16,6 +27,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DependenciesAnalyzeManager">
+    <option name="includeTests" value="true" />
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -52,9 +66,10 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/search" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/page_objects" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -62,11 +77,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/page_objects" />
+      <recent name="$PROJECT_DIR$/page_objects" />
+      <recent name="$PROJECT_DIR$/pageobjects" />
       <recent name="$PROJECT_DIR$/tests/search" />
       <recent name="$PROJECT_DIR$/info" />
-      <recent name="$PROJECT_DIR$/pageobjects" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests" />
@@ -78,7 +93,6 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="pytest tests -s " />
       <command value="pip install -r requirements.txt" />
       <command value="pip3 install pytest" />
       <command value="mvn clean" />
@@ -86,6 +100,11 @@
       <command value="pip uninstall pytest-html" />
       <command value="pip3 install -r requirements.txt" />
       <command value="pytest --collect-only" />
+      <command value="pytest tests -s " />
+      <command value="pytest tests/ -s " />
+      <command value="pytest tests/search -s" />
+      <command value="py.test --environment=&quot;prod&quot; -s tests/search/test_amoxicillin.py" />
+      <command value="pytest --environment=&quot;prod&quot; -s tests/search/test_amoxicillin.py" />
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Test Runner">

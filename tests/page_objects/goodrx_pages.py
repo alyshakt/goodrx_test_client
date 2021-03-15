@@ -3,11 +3,8 @@ import logging
 
 import pytest
 from selenium.webdriver.common.keys import Keys
-
-import LocatorsUtil
-import screenshot_util
-from LocatorsUtil import wait_for_seconds
-from pageobjects.goodrx_locators import SearchPageLocators, PricePageLocators, CouponPageLocators, BasePageLocators
+from tests.page_objects import screenshot_util, LocatorsUtil, goodrx_locators
+from tests.page_objects.LocatorsUtil import wait_for_seconds
 
 
 class BasePage(object):
@@ -100,8 +97,8 @@ class BasePage(object):
         self.driver.quit()
 
     def handle_popups(self):
-        BasePageLocators.robot_killer(self)
-        gold, newsletter, otc = BasePageLocators.popups(self)
+        goodrx_locators.BasePageLocators.robot_killer(self)
+        gold, newsletter, otc = goodrx_locators.BasePageLocators.popups(self)
         if gold:
             self.click_element(gold)
         if newsletter:
@@ -117,18 +114,18 @@ class SearchPage(BasePage):
         self.handle_popups()
         pagetitle = self.driver.title
         self.save_screenshot(pagetitle)
-        return bool(SearchPageLocators.search_field(self))
+        return bool(goodrx_locators.SearchPageLocators.search_field(self))
 
     def enter_search_text(self, text_to_enter):
         try:
-            element = SearchPageLocators.search_field(self)
+            element = goodrx_locators.SearchPageLocators.search_field(self)
             self.enter_text(element, text_to_enter)
         except AttributeError:
             logging.warning('Search field was not found...', exc_info=True)
 
     def select_first_result(self):
         wait_for_seconds(2)
-        element = SearchPageLocators.search_field(self)
+        element = goodrx_locators.SearchPageLocators.search_field(self)
         self.save_screenshot('results')
         element.send_keys(Keys.RETURN)
 
@@ -138,29 +135,29 @@ class PricePage(BasePage):
 
     def page_initiated(self):
         self.handle_popups()
-        element = PricePageLocators.rx_settings_panel(self)
+        element = goodrx_locators.PricePageLocators.rx_settings_panel(self)
         pagetitle = self.driver.title
         self.save_screenshot(pagetitle)
         return bool(element)
 
     def settings_panel_exists(self):
-        return bool(PricePageLocators.rx_settings_panel(self))
+        return bool(goodrx_locators.PricePageLocators.rx_settings_panel(self))
 
     def price_rows_exist(self):
-        return bool(PricePageLocators.price_rows(self))
+        return bool(goodrx_locators.PricePageLocators.price_rows(self))
 
     def count_of_price_rows(self):
-        return len(PricePageLocators.price_rows(self))
+        return len(goodrx_locators.PricePageLocators.price_rows(self))
 
     def get_price_row_data(self):
-        elements = PricePageLocators.price_rows(self)
+        elements = goodrx_locators.PricePageLocators.price_rows(self)
         rows_data = list()
         for name in elements:
             rows_data.append(self.get_element_text(name))
         return rows_data
 
     def get_pharmacy_list(self):
-        elements = PricePageLocators.pharmacy_names(self)
+        elements = goodrx_locators.PricePageLocators.pharmacy_names(self)
         pharmacy_names = list()
         for name in elements:
             prepped_name = self.get_element_text(name).split(':\n')[1].replace('\n.', '')
@@ -170,7 +167,7 @@ class PricePage(BasePage):
         return pharmacy_names
 
     def get_drug_prices(self):
-        elements = PricePageLocators.drug_prices(self)
+        elements = goodrx_locators.PricePageLocators.drug_prices(self)
         drug_price_data_dict = []
         for price_data in elements:
             raw_string = self.get_element_text(price_data)
@@ -194,8 +191,8 @@ class PricePage(BasePage):
 
     def get_pharmacies_and_prices(self):
         final_data_dict = []
-        stores = PricePageLocators.pharmacy_names(self)
-        drug_prices = PricePageLocators.drug_prices(self)
+        stores = goodrx_locators.PricePageLocators.pharmacy_names(self)
+        drug_prices = goodrx_locators.PricePageLocators.drug_prices(self)
         assert len(stores) == len(drug_prices)
         for index in range(len(stores)):
             prepped_store_name = self.get_element_text(stores[index]).split(':\n')[1].replace('\n.', '')
@@ -223,9 +220,9 @@ class PricePage(BasePage):
 
     def click_result_matching(self, match_data):
         found_match = False
-        pharmacies = PricePageLocators.pharmacy_names(self)
-        drug_prices = PricePageLocators.drug_prices(self)
-        price_rows = PricePageLocators.price_rows(self)
+        pharmacies = goodrx_locators.PricePageLocators.pharmacy_names(self)
+        drug_prices = goodrx_locators.PricePageLocators.drug_prices(self)
+        price_rows = goodrx_locators.PricePageLocators.price_rows(self)
         match_data = match_data.lower()
         price_count = len(price_rows)
         for row in range(price_count):
@@ -236,7 +233,7 @@ class PricePage(BasePage):
             pharmacy_info = self.get_element_text(pharmacy).replace('\n', '').lower()
             price_info = self.get_element_text(price).replace('\n', '')
             print('Searching for a match...')
-            info_button = PricePageLocators.nested_row_button(self, this_row)
+            info_button = goodrx_locators.PricePageLocators.nested_row_button(self, this_row)
             if match_data in pharmacy_info or match_data in price_info:
                 print('Found matching result {}{}'.format(pharmacy_info, price_info, row))
                 found_match = bool(this_row)
@@ -245,7 +242,7 @@ class PricePage(BasePage):
         return found_match
 
     def get_drug_title(self):
-        return self.get_element_text(SearchPageLocators.drug_title(self))
+        return self.get_element_text(goodrx_locators.SearchPageLocators.drug_title(self))
 
 
 class CouponPage(BasePage):
@@ -255,11 +252,11 @@ class CouponPage(BasePage):
         self.handle_popups()
         pagetitle = self.driver.title
         self.save_screenshot(pagetitle)
-        return bool(CouponPageLocators.clipping(self))
+        return bool(goodrx_locators.CouponPageLocators.clipping(self))
 
     def get_price(self):
-        element = CouponPageLocators.price(self)
-        prices = CouponPageLocators.indexed_prices(self)
+        element = goodrx_locators.CouponPageLocators.price(self)
+        prices = goodrx_locators.CouponPageLocators.indexed_prices(self)
         price_text_list = []
         if element:
             price_text_list.append(self.get_element_text(element).replace('$', ''))
@@ -269,8 +266,8 @@ class CouponPage(BasePage):
         return price_text_list
 
     def get_pharmacy_name(self):
-        element = CouponPageLocators.pharmacy_name(self)
-        pharmacies = CouponPageLocators.indexed_pharmacies(self)
+        element = goodrx_locators.CouponPageLocators.pharmacy_name(self)
+        pharmacies = goodrx_locators.CouponPageLocators.indexed_pharmacies(self)
         pharmacies_text_list = []
         if element:
             pharmacies_text_list.append(self.get_element_text(element).replace('at ', '').lower())

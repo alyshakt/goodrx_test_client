@@ -4,7 +4,7 @@
 """
 from selenium.webdriver import ActionChains
 
-from LocatorsUtil import BaseLocators, wait_for_seconds
+from tests.page_objects.LocatorsUtil import BaseLocators, wait_for_seconds
 
 default_wait = 45
 

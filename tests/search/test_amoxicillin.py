@@ -3,7 +3,7 @@ import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from pageobjects.goodrx_pages import SearchPage, BasePage, PricePage, CouponPage
+from tests.page_objects import goodrx_pages
 from setup_environments.App import App
 from setup_environments.AppSetup import navigate_to_environment
 
@@ -23,10 +23,10 @@ def test_search_amoxicillin(environment, record_xml_attribute):
     options.add_argument("enable-javascript")
     options.add_argument("disable-extensions")
     driver = webdriver.Chrome(chrome_options=options)
-    base_page = BasePage(driver)
-    search_page = SearchPage(driver)
-    price_page = PricePage(driver)
-    coupon_page = CouponPage(driver)
+    base_page = goodrx_pages.BasePage(driver)
+    search_page = goodrx_pages.SearchPage(driver)
+    price_page = goodrx_pages.PricePage(driver)
+    coupon_page = goodrx_pages.CouponPage(driver)
 
     #
     search_terms = ['Amoxicillin']
