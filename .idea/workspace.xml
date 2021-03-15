@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="UPdate tests with TODO&#10;Add Test reports and screenshot output">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Update README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/search/test_advil_otc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_advil_otc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/search/test_controlled.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_controlled.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615827371173</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Update README.md">
+      <created>1615828311121</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1615828311121</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -450,7 +461,6 @@
     <MESSAGE value="Update locators structure" />
     <MESSAGE value="Make wait time for robot killer lower" />
     <MESSAGE value="Update structure of Runner" />
-    <MESSAGE value="Update README.md" />
     <MESSAGE value="Optimize screenshots" />
     <MESSAGE value="Add new steps and locators" />
     <MESSAGE value="Refactor Environmet to App / AppSetup due to integration of environment variable in conftest.py" />
@@ -458,7 +468,8 @@
     <MESSAGE value="Add idea stuff in case" />
     <MESSAGE value="Update the Exceptions" />
     <MESSAGE value="UPdate tests with TODO&#10;Add Test reports and screenshot output" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPdate tests with TODO&#10;Add Test reports and screenshot output" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
