@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Update structure to allow for command line">
-      <change beforePath="$PROJECT_DIR$/tests/search/test_advil_otc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_advil_otc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/search/test_controlled.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_controlled.py" afterDir="false" />
-    </list>
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="You can now run using `pytest --environment=&quot;prod&quot; -s tests/search/  --html=test-reports/runreport.html`" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +89,7 @@
       <command value="pytest --environment=&quot;prod&quot; -s tests/search/test_amoxicillin.py" />
       <command value="pytest --environment=&quot;prod&quot; -s tests/search/" />
       <command value="pytest --environment=&quot;prod&quot; -s tests/search/ -html=test-reports/runreport.html " />
+      <command value="pytest --environment=&quot;prod&quot; -s tests/search/  --html=test-reports/runreport.html " />
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Test Runner">
@@ -463,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615845626975</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="You can now run using `pytest --environment=&quot;prod&quot; -s tests/search/  --html=test-reports/runreport.html`">
+      <created>1615845875448</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1615845875448</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -500,7 +505,8 @@
     <MESSAGE value="Update logging failures" />
     <MESSAGE value="Fix .lower() bug" />
     <MESSAGE value="Update structure to allow for command line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update structure to allow for command line" />
+    <MESSAGE value="You can now run using `pytest --environment=&quot;prod&quot; -s tests/search/  --html=test-reports/runreport.html`" />
+    <option name="LAST_COMMIT_MESSAGE" value="You can now run using `pytest --environment=&quot;prod&quot; -s tests/search/  --html=test-reports/runreport.html`" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
