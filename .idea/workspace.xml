@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Add idea stuff in case">
-      <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -22,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test/expand_search" />
+        <entry key="$PROJECT_DIR$" value="feature/done" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -182,16 +192,16 @@
       <item itemvalue="Python.LocatorsUtil" />
       <item itemvalue="Python.goodrx_locators" />
       <item itemvalue="Python.test_amoxicillin" />
-      <item itemvalue="Python tests.Test Runner" />
       <item itemvalue="Python.test_search" />
+      <item itemvalue="Python tests.Test Runner" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.goodrx_locators" />
         <item itemvalue="Python.LocatorsUtil" />
         <item itemvalue="Python.test_search" />
-        <item itemvalue="Python.test_amoxicillin" />
         <item itemvalue="Python.goodrx_locators" />
+        <item itemvalue="Python.LocatorsUtil" />
       </list>
     </recent_temporary>
   </component>
