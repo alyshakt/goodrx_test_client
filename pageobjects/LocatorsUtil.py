@@ -39,7 +39,7 @@ class BaseLocators(object):
                 exists = self.driver.find_element(By.CLASS_NAME, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -59,7 +59,7 @@ class BaseLocators(object):
                 exists = self.driver.find_element(By.ID, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -79,7 +79,7 @@ class BaseLocators(object):
                 exists = self.driver.find_element(By.XPATH, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -99,7 +99,7 @@ class BaseLocators(object):
                 exists = self.driver.find_element(By.CSS_SELECTOR, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -119,7 +119,7 @@ class BaseLocators(object):
                 exists = self.driver.find_elements(By.CSS_SELECTOR, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -139,7 +139,7 @@ class BaseLocators(object):
                 exists = self.driver.find_elements(By.CLASS_NAME, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -159,7 +159,7 @@ class BaseLocators(object):
                 exists = self.driver.find_elements(By.ID, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -179,7 +179,7 @@ class BaseLocators(object):
                 exists = element.find_element(By.CSS_SELECTOR, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -199,7 +199,7 @@ class BaseLocators(object):
                 exists = element.find_elements(By.CSS_SELECTOR, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -219,7 +219,7 @@ class BaseLocators(object):
                 exists = element.find_element(By.XPATH, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -239,7 +239,7 @@ class BaseLocators(object):
                 exists = self.driver.find_elements(By.XPATH, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -259,7 +259,7 @@ class BaseLocators(object):
                 exists = self.driver.find_element(By.NAME, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:
@@ -279,7 +279,7 @@ class BaseLocators(object):
                 exists = self.driver.find_elements(By.NAME, identifier)
                 print('We found the element? {}'.format(bool(exists)))
             except NoSuchElementException as n:
-                logging.info('An exception was thrown!', exc_info=False)
+                logging.info('No such element found.', exc_info=False)
             if exists:
                 return exists
             else:

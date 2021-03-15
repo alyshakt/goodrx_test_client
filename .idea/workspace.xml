@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Add idea stuff in case">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/LocatorsUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/pageobjects/LocatorsUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pageobjects/goodrx_pages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231Amoxicillin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231AmoxicillinPricesandAmoxicillinCoupons-GoodRx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231PrescriptionPrices,Coupons&amp;PharmacyInformation-GoodRx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231results.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231smith's.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0232Printthiscoupon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0232cvspharmacy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0232intermountainhealthcarepharmacy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-reports/search_run_junit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,7 +409,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615690226218</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Add idea stuff in case">
+      <created>1615825230732</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1615825230732</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Add idea stuff in case">
+      <created>1615825266720</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1615825266720</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

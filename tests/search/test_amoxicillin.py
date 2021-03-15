@@ -69,10 +69,12 @@ def test_search_amoxicillin(environment, record_xml_attribute):
                         base_page.wait_for_seconds(2)
                     else:
                         logging.info('Skipping non-coupon results: {}'.format(this_result))
-            except AssertionError as failure:
+            except (Exception, BaseException, AssertionError) as failure:
                 fails.append(failure)
-                fail_text = str(fails)
-                logging.error(msg=fail_text)
+    except (Exception, BaseException) as failure:
+        fails.append(failure)
+        fail_text = ';'.join(fails)
+        logging.error(msg=fail_text)
     finally:
         # Finally, quit the driver.
         base_page.tear_down(fail_text)

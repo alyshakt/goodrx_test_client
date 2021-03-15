@@ -88,13 +88,14 @@ class BasePage(object):
         pytest.fail('The test failed. {}'.format(error), False)
 
     def tear_down(self, failure):
+        print('Failures if any: {}'.format(failure))
         if failure is not None:
             logging.error('The workflow failures if any are: {}'.format(failure))
             self.save_screenshot('Failed')
             self.process_failure(failure)
         else:
             self.save_screenshot('Passed')
-            logging.warning('PASSED')
+            logging.info('PASSED')
         # TODO ReportUtil.pytest_runtest_makereport()
         self.driver.quit()
 
@@ -226,8 +227,10 @@ class PricePage(BasePage):
         drug_prices = PricePageLocators.drug_prices(self)
         price_rows = PricePageLocators.price_rows(self)
         match_data = match_data.lower()
-        for row in range(len(price_rows)):
+        price_count = len(price_rows)
+        for row in range(price_count):
             this_row = price_rows[row]
+            self.scroll_to_element(this_row)
             pharmacy = pharmacies[row]
             price = drug_prices[row]
             pharmacy_info = self.get_element_text(pharmacy).replace('\n', '').lower()
@@ -237,7 +240,6 @@ class PricePage(BasePage):
             if match_data in pharmacy_info or match_data in price_info:
                 print('Found matching result {}{}'.format(pharmacy_info, price_info, row))
                 found_match = bool(this_row)
-                self.scroll_to_element(this_row)
                 self.click_element(info_button)
                 self.save_screenshot(match_data)
         return found_match
