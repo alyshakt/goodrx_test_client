@@ -99,10 +99,10 @@ Additional Test Case Consideration
 Critical test flows should take into account information that is being displayed from backend API services. A critical test case would be to make sure that prices and pharmacies displayed for a particular drug name are matching what is served from the backend - for instance, that the pharmacy name "Smith's" has a price of 5.22 from the backend, and is displaying 5.22 and not potentially another pharmacy's prices.
 I'd imagine a flow such as this:
 For a given environment...
-#GET pharmacies and prices for input: drug name
-#When results return, perhaps verify the count of results.
-#Parse and save the results to variables to be verified further in the test
-#Access the UI and search for the same drug name input 
-#Verify the count of results is the same on UI as backend
-#Verify that for each pharmacy result, the name and price matches the backend results.
-#If there's a mis-match or not all results are being shown on UI, return a comparison of the backend to UI results.
+<li>GET pharmacies and prices for input: drug name</li>
+<li>When results return, perhaps verify the count of results.</li>
+<li>Parse and save the results to variables to be verified further in the test</li>
+<li>Access the UI and search for the same drug name input </li>
+<li>Verify the count of results is the same on UI as backend</li>
+<li>Verify that for each pharmacy result, the name and price matches the backend results.</li>
+<li>If there's a mis-match or not all results are being shown on UI, return a comparison of the backend to UI results.</li>
