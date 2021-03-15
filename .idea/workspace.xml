@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Add idea stuff in case">
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Update the Exceptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/LocatorsUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/pageobjects/LocatorsUtil.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pageobjects/goodrx_pages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231Amoxicillin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231AmoxicillinPricesandAmoxicillinCoupons-GoodRx.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231PrescriptionPrices,Coupons&amp;PharmacyInformation-GoodRx.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231results.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0231smith's.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0232Printthiscoupon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0232cvspharmacy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/screenshots/03-14-0232intermountainhealthcarepharmacy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/search_run_junit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/search/test_advil_otc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_advil_otc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/search/test_controlled.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_controlled.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615825266720</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Update the Exceptions">
+      <created>1615827022528</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1615827022528</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,7 +453,8 @@
     <MESSAGE value="Refactor Environmet to App / AppSetup due to integration of environment variable in conftest.py" />
     <MESSAGE value="As much as could be done within two days, and I believe this will show my technical abilities adequately." />
     <MESSAGE value="Add idea stuff in case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add idea stuff in case" />
+    <MESSAGE value="Update the Exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the Exceptions" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -9,10 +9,12 @@ from setup_environments.AppSetup import navigate_to_environment
 
 
 def test_search_controlled(environment, record_xml_attribute):
-    """When searching for an OTC like Advil, Verify that prices found on the Price Page with discount offers match prices found on their respective store pages
+    # TODO take into account differences in OTC, Controlled or specialty Rx Types.
+    # Until then, expect failures here for Vicodin and Advil
+    """When searching for a controlled medication like Vicodin, Verify that prices found on the Price Page with discount offers match prices found on their respective store pages
         Verify that store names are also matched.
         """
-    record_xml_attribute('name', 'GoodRx Test Project User Search -> OTC Coupon Workflow')
+    record_xml_attribute('name', 'GoodRx Test Project User Search -> Controlled Med Coupon Workflow')
     fails = list()
     fail_text = None
     # Setup Driver, define options - Ideally put this in a more dynamic situation so you could pass arguments
@@ -30,7 +32,6 @@ def test_search_controlled(environment, record_xml_attribute):
 
     #
     search_terms = ['Vicodin']
-    # Define the Search page and the page objects
     try:
         for term in search_terms:
             try:
@@ -69,10 +70,12 @@ def test_search_controlled(environment, record_xml_attribute):
                         base_page.wait_for_seconds(2)
                     else:
                         logging.info('Skipping non-coupon results: {}'.format(this_result))
-            except AssertionError as failure:
+            except (Exception, BaseException, AssertionError) as failure:
                 fails.append(failure)
-                fail_text = str(fails)
-                logging.error(msg=fail_text)
+    except (Exception, BaseException) as failure:
+        fails.append(failure)
+        fail_text = ';'.join(fails)
+        logging.error(msg=fail_text)
     finally:
         # Finally, quit the driver.
         base_page.tear_down(fail_text)

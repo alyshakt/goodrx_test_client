@@ -30,7 +30,6 @@ def test_search_amoxicillin(environment, record_xml_attribute):
 
     #
     search_terms = ['Amoxicillin']
-    # Define the Search page and the page objects
     try:
         for term in search_terms:
             try:
