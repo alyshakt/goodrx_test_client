@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Fix .lower() bug">
-      <change afterPath="$PROJECT_DIR$/page_objects/page_objects.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/page_objects/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/goodrx_test_client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/goodrx_test_client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/LocatorsUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/LocatorsUtil.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/ReportUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/ReportUtil.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/goodrx_locators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/goodrx_pages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pageobjects/screenshot_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/screenshot_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Test Runner.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Test Runner.run.xml" afterDir="false" />
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Update structure to allow for command line">
       <change beforePath="$PROJECT_DIR$/tests/search/test_advil_otc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_advil_otc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_controlled.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_controlled.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +53,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/page_objects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -77,18 +62,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/tests/page_objects" />
       <recent name="$PROJECT_DIR$/page_objects" />
       <recent name="$PROJECT_DIR$/pageobjects" />
       <recent name="$PROJECT_DIR$/tests/search" />
-      <recent name="$PROJECT_DIR$/info" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/page-objects" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/pageobjects" />
       <recent name="$PROJECT_DIR$/web_page_objects/" />
       <recent name="$PROJECT_DIR$/objects_pages" />
-      <recent name="$PROJECT_DIR$/pages/" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -105,6 +90,8 @@
       <command value="pytest tests/search -s" />
       <command value="py.test --environment=&quot;prod&quot; -s tests/search/test_amoxicillin.py" />
       <command value="pytest --environment=&quot;prod&quot; -s tests/search/test_amoxicillin.py" />
+      <command value="pytest --environment=&quot;prod&quot; -s tests/search/" />
+      <command value="pytest --environment=&quot;prod&quot; -s tests/search/ -html=test-reports/runreport.html " />
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Test Runner">
@@ -469,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615830016242</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Update structure to allow for command line">
+      <created>1615845626975</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1615845626975</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,7 +499,8 @@
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Update logging failures" />
     <MESSAGE value="Fix .lower() bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix .lower() bug" />
+    <MESSAGE value="Update structure to allow for command line" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update structure to allow for command line" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
