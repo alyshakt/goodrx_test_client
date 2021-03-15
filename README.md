@@ -45,9 +45,9 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
         driver = webdriver.Firefox(options=options)
 ```
 
-You'll see an `Environment` class to define Enums for switching between types of web apps. This is simply an example of
+You'll see an `App` class to define Enums for switching between types of web apps. This is simply an example of
 how you could use Enums like this to standardize initial inputs and make things easier for testers to switch between
-websites, environments or anything else you can think of. This Enum is used in `EnvironmentSetup.py` to define the URL
+websites, environments or anything else you can think of. This Enum is used in `AppSetup.py` to define the URL
 for the Enum and pass it on to navigate to that URL.
 
 Screenshots are automatically named by the created date and saved in PNG format, with the option to add a name to append
