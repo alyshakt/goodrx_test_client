@@ -22,7 +22,30 @@ your python interpreter for your project, or change the runner to refer to anoth
 
 -To get an HTML report, add `--html=<path to save the file to>.html`; I like to save reports to \test-reports
 
--Find screenshots in test-reports/screenshots.
+-Find screenshots and HTML reports in test-reports/screenshots.
+
+My Test Runner configuration is:
+```
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="Test Runner" type="tests" factoryName="py.test" singleton="false">
+        <module name="goodrx_test_client"/>
+        <option name="INTERPRETER_OPTIONS" value=""/>
+        <option name="PARENT_ENVS" value="true"/>
+        <option name="SDK_HOME" value="$PROJECT_DIR$/../venv/bin/python"/>
+        <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$"/>
+        <option name="IS_MODULE_SDK" value="true"/>
+        <option name="ADD_CONTENT_ROOTS" value="true"/>
+        <option name="ADD_SOURCE_ROOTS" value="true"/>
+        <option name="_new_keywords" value="&quot;&quot;"/>
+        <option name="_new_parameters" value="&quot;&quot;"/>
+        <option name="_new_additionalArguments"
+                value="&quot;--environment\u003d\u0027Prod\u0027 -s -o log_cli\u003dtrue --html\u003dtest-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html&quot;"/>
+        <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/search/test_amoxicillin.py&quot;"/>
+        <option name="_new_targetType" value="&quot;PATH&quot;"/>
+        <method v="2"/>
+    </configuration>
+</component>
+```
 
 I use the `record_xml_attribute` in my tests because I want useable xml reporting output to integrate with XRay
 importing capabilities with Jira. It is not necessary to use it if you do not care for that output in your xml document.
