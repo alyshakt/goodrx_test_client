@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="example_ui_tests" errors="0" failures="1" skipped="0" tests="1" time="130.160"
+               timestamp="2021-03-13T16:48:31.889765" hostname="Alyshas-MBP.domain">
+        <testcase classname="tests.search.test_search" name="GoodRx Test Project User Search -&gt; Coupon Workflow"
+                  file="tests/search/test_search.py" line="8" time="130.011">
+            <failure
+                    message="Failed: The test failed. [AssertionError('assert \'costco\' in &quot;smith\'s&quot;\n +  where &quot;smith\'s&quot; = &lt;built-in method join of str object at 0x7fd37354f670&gt;([&quot;smith\'s&quot;])\n +    where &lt;built-in method join of str object at 0x7fd37354f670&gt; = \'\'.join')]">
+                record_xml_attribute = &lt;bound method _NodeReporter.add_attribute of &lt;_pytest.junitxml._NodeReporter
+                object at 0x7fd3798afbe0&gt;&gt;
+
+                def test_search(record_xml_attribute):
+                """Verify that prices found on the Price Page with discount offers match prices found on their
+                respective store pages
+                Verify that store names are also matched.
+                """
+                record_xml_attribute('name', 'GoodRx Test Project User Search -&gt; Coupon Workflow')
+                fails = list()
+                # Setup Driver, define options
+                options = Options()
+                options.add_argument("disable-popup-blocking")
+                options.add_argument("enable-javascript")
+                options.add_argument("disable-extensions")
+                # options.add_argument('--headless')
+                driver = webdriver.Chrome(chrome_options=options)
+                base_page = BasePage(driver)
+                search_page = SearchPage(driver)
+                price_page = PricePage(driver)
+                coupon_page = CouponPage(driver)
+
+                #
+                search_terms = ['Amoxicillin', 'True Metrix', 'Advil', 'Vicodin']
+                # Define the Search page and the page objects
+                for term in search_terms:
+                try:
+                navigate_to_environment(driver=driver, Environment=Environment.goodrx)
+                assert search_page.page_initiated()
+                search_page.enter_search_text(term)
+                base_page.save_screenshot(term)
+                search_page.select_first_result()
+                assert price_page.page_initiated()
+                assert price_page.settings_panel_exists()
+                # For each price row with a Get Free Coupon or Get Free Discount, Click on the button and
+                # verify that the price on the price row matches the one shown on the new page, and the pharmacy name
+                matches.
+                assert price_page.price_rows_exist()
+                assert price_page.count_of_price_rows() &gt; 0
+                pharmacies_and_prices = price_page.get_pharmacies_and_prices()
+                for result in pharmacies_and_prices:
+                this_result = result['pharmacyPrices']
+                print('Testing result: {}'.format(this_result))
+                if 'coupon' in this_result['priceType']:
+                pharmacy = this_result['pharmacy'].lower()
+                pharmacy_price = this_result['price']
+                assert price_page.click_result_matching(pharmacy)
+                base_page.wait_for_seconds(5)
+                base_page.switch_tab()
+                assert coupon_page.page_initiated()
+                price_found = coupon_page.get_price()
+                pharmacy_found = coupon_page.get_pharmacy_name()
+                &gt; assert pharmacy in ''.join(pharmacy_found)
+                E AssertionError: assert 'costco' in "smith's"
+                E + where "smith's" = &lt;built-in method join of str object at 0x7fd37354f670&gt;(["smith's"])
+                E + where &lt;built-in method join of str object at 0x7fd37354f670&gt; = ''.join
+
+                tests/search/test_search.py:56: AssertionError
+
+                During handling of the above exception, another exception occurred:
+
+                record_xml_attribute = &lt;bound method _NodeReporter.add_attribute of &lt;_pytest.junitxml._NodeReporter
+                object at 0x7fd3798afbe0&gt;&gt;
+
+                def test_search(record_xml_attribute):
+                """Verify that prices found on the Price Page with discount offers match prices found on their
+                respective store pages
+                Verify that store names are also matched.
+                """
+                record_xml_attribute('name', 'GoodRx Test Project User Search -&gt; Coupon Workflow')
+                fails = list()
+                # Setup Driver, define options
+                options = Options()
+                options.add_argument("disable-popup-blocking")
+                options.add_argument("enable-javascript")
+                options.add_argument("disable-extensions")
+                # options.add_argument('--headless')
+                driver = webdriver.Chrome(chrome_options=options)
+                base_page = BasePage(driver)
+                search_page = SearchPage(driver)
+                price_page = PricePage(driver)
+                coupon_page = CouponPage(driver)
+
+                #
+                search_terms = ['Amoxicillin', 'True Metrix', 'Advil', 'Vicodin']
+                # Define the Search page and the page objects
+                for term in search_terms:
+                try:
+                navigate_to_environment(driver=driver, Environment=Environment.goodrx)
+                assert search_page.page_initiated()
+                search_page.enter_search_text(term)
+                base_page.save_screenshot(term)
+                search_page.select_first_result()
+                assert price_page.page_initiated()
+                assert price_page.settings_panel_exists()
+                # For each price row with a Get Free Coupon or Get Free Discount, Click on the button and
+                # verify that the price on the price row matches the one shown on the new page, and the pharmacy name
+                matches.
+                assert price_page.price_rows_exist()
+                assert price_page.count_of_price_rows() &gt; 0
+                pharmacies_and_prices = price_page.get_pharmacies_and_prices()
+                for result in pharmacies_and_prices:
+                this_result = result['pharmacyPrices']
+                print('Testing result: {}'.format(this_result))
+                if 'coupon' in this_result['priceType']:
+                pharmacy = this_result['pharmacy'].lower()
+                pharmacy_price = this_result['price']
+                assert price_page.click_result_matching(pharmacy)
+                base_page.wait_for_seconds(5)
+                base_page.switch_tab()
+                assert coupon_page.page_initiated()
+                price_found = coupon_page.get_price()
+                pharmacy_found = coupon_page.get_pharmacy_name()
+                assert pharmacy in ''.join(pharmacy_found)
+                assert pharmacy_price in ''.join(price_found)
+                base_page.switch_tab()
+                base_page.close_child_tabs()
+                base_page.wait_for_seconds(2)
+                except (BaseException, Exception) as failure:
+                fails.append(failure)
+                &gt; print('The workflow has failures: {}'.format(' Failure: '.join(fails)))
+                E TypeError: sequence item 0: expected str instance, AssertionError found
+
+                tests/search/test_search.py:63: TypeError
+
+                During handling of the above exception, another exception occurred:
+
+                record_xml_attribute = &lt;bound method _NodeReporter.add_attribute of &lt;_pytest.junitxml._NodeReporter
+                object at 0x7fd3798afbe0&gt;&gt;
+
+                def test_search(record_xml_attribute):
+                """Verify that prices found on the Price Page with discount offers match prices found on their
+                respective store pages
+                Verify that store names are also matched.
+                """
+                record_xml_attribute('name', 'GoodRx Test Project User Search -&gt; Coupon Workflow')
+                fails = list()
+                # Setup Driver, define options
+                options = Options()
+                options.add_argument("disable-popup-blocking")
+                options.add_argument("enable-javascript")
+                options.add_argument("disable-extensions")
+                # options.add_argument('--headless')
+                driver = webdriver.Chrome(chrome_options=options)
+                base_page = BasePage(driver)
+                search_page = SearchPage(driver)
+                price_page = PricePage(driver)
+                coupon_page = CouponPage(driver)
+
+                #
+                search_terms = ['Amoxicillin', 'True Metrix', 'Advil', 'Vicodin']
+                # Define the Search page and the page objects
+                for term in search_terms:
+                try:
+                navigate_to_environment(driver=driver, Environment=Environment.goodrx)
+                assert search_page.page_initiated()
+                search_page.enter_search_text(term)
+                base_page.save_screenshot(term)
+                search_page.select_first_result()
+                assert price_page.page_initiated()
+                assert price_page.settings_panel_exists()
+                # For each price row with a Get Free Coupon or Get Free Discount, Click on the button and
+                # verify that the price on the price row matches the one shown on the new page, and the pharmacy name
+                matches.
+                assert price_page.price_rows_exist()
+                assert price_page.count_of_price_rows() &gt; 0
+                pharmacies_and_prices = price_page.get_pharmacies_and_prices()
+                for result in pharmacies_and_prices:
+                this_result = result['pharmacyPrices']
+                print('Testing result: {}'.format(this_result))
+                if 'coupon' in this_result['priceType']:
+                pharmacy = this_result['pharmacy'].lower()
+                pharmacy_price = this_result['price']
+                assert price_page.click_result_matching(pharmacy)
+                base_page.wait_for_seconds(5)
+                base_page.switch_tab()
+                assert coupon_page.page_initiated()
+                price_found = coupon_page.get_price()
+                pharmacy_found = coupon_page.get_pharmacy_name()
+                assert pharmacy in ''.join(pharmacy_found)
+                assert pharmacy_price in ''.join(price_found)
+                base_page.switch_tab()
+                base_page.close_child_tabs()
+                base_page.wait_for_seconds(2)
+                except (BaseException, Exception) as failure:
+                fails.append(failure)
+                print('The workflow has failures: {}'.format(' Failure: '.join(fails)))
+                finally:
+                # Finally, quit the driver and appium service!
+                &gt; base_page.tear_down(fails)
+
+                tests/search/test_search.py:66:
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                pageobjects/goodrx_pages.py:93: in tear_down
+                self.process_failure(str(failure))
+                _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+                self = &lt;pageobjects.goodrx_pages.BasePage object at 0x7fd3798c0820&gt;
+                error = '[AssertionError(\'assert \\\'costco\\\' in "smith\\\'s"\\n + where "smith\\\'s" = &lt;built-in
+                method join of str objec...7fd37354f670&gt;(["smith\\\'s"])\\n + where &lt;built-in method join of str
+                object at 0x7fd37354f670&gt; = \\\'\\\'.join\')]'
+
+                def process_failure(self, error):
+                print(self.get_page_src_info())
+                &gt; pytest.fail('The test failed. {}'.format(error), True)
+                E Failed: The test failed. [AssertionError('assert \'costco\' in "smith\'s"\n + where "smith\'s" = &lt;built-in
+                method join of str object at 0x7fd37354f670&gt;(["smith\'s"])\n + where &lt;built-in method join of str
+                object at 0x7fd37354f670&gt; = \'\'.join')]
+
+                pageobjects/goodrx_pages.py:86: Failed
+            </failure>
+            <system-out>--------------------------------- Captured Log ---------------------------------
+
+                --------------------------------- Captured Out ---------------------------------
+
+            </system-out>
+            <system-err>--------------------------------- Captured Err ---------------------------------
+
+            </system-err>
+        </testcase>
+    </testsuite>
+</testsuites>
