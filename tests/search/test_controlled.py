@@ -67,7 +67,7 @@ def test_search_controlled(environment, record_xml_attribute):
                     assert pharmacy_price in ''.join(price_found)
                     base_page.switch_tab()
                     base_page.close_child_tabs()
-                    base_page.wait_for_seconds(2)
+                    base_page.refresh_screen()
                 else:
                     logging.info('Skipping non-coupon results: {}'.format(this_result))
     except (Exception, BaseException) as failure:

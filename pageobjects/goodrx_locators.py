@@ -28,12 +28,12 @@ class BasePageLocators(BaseLocators):
             action.perform()
 
     def popups(self):
-        gold = BaseLocators.element_by_css(self, "[data-qa='gold-icoupon-close']", 5)
-        newsletter = BaseLocators.element_by_css(self, "[data-qa='modal_close_btn_newsletter-modal-redesign']", 5)
-        otcheader = BaseLocators.element_by_classname(self, 'modalHeader-V4_zF', 5)
+        gold = BaseLocators.element_by_css(self, "[data-qa='gold-icoupon-close']", 3)
+        newsletter = BaseLocators.element_by_css(self, "[data-qa='modal_close_btn_newsletter-modal-redesign']", 3)
+        otcheader = BaseLocators.element_by_classname(self, 'modalHeader-V4_zF', 3)
         otc_restrictions = False
         if otcheader:
-            otc_restrictions = BaseLocators.nested_element_by_css(self, otcheader, 'icon-close-UX5U5', 2)
+            otc_restrictions = BaseLocators.nested_element_by_css(self, otcheader, 'icon-close-UX5U5', 1)
         return gold, newsletter, otc_restrictions
 
 

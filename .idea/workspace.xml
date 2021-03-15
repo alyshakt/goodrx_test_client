@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Update logging failures">
+    <list default="true" id="d998a860-ed46-4cce-9dc7-3d3d0c138fcf" name="Default Changelist" comment="Fix .lower() bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pageobjects/goodrx_locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/pageobjects/goodrx_locators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-reports/GoodRx_Test_User_Search_Coupon_Workflow_Report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_advil_otc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_advil_otc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/search/test_amoxicillin.py" afterDir="false" />
@@ -442,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615829540511</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fix .lower() bug">
+      <created>1615830016242</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1615830016242</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -477,7 +485,8 @@
     <MESSAGE value="UPdate tests with TODO&#10;Add Test reports and screenshot output" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Update logging failures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update logging failures" />
+    <MESSAGE value="Fix .lower() bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix .lower() bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
