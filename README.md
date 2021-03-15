@@ -2,7 +2,8 @@
 
 A Python based project to fulfill the GoodRx test project.
 
-# Run `pip3 install -r requirements.txt` on the directory to install dependencies.
+Run `pip3 install -r requirements.txt` on the directory to install dependencies.
+==
 
 This project uses Selenium https://www.selenium.dev/ and Chrome or Firefox. -If you already have Chrome or Firefox on
 your machine, you don't need to do anything special to use it.
