@@ -2,15 +2,17 @@
 
 A Python based project to fulfill the GoodRx test project.
 
-Run `pip3 install -r requirements.txt` on the directory to install dependencies.
+Use
 ==
 
-This project uses Selenium https://www.selenium.dev/ and Chrome or Firefox. -If you already have Chrome or Firefox on
+-Run `pip3 install -r requirements.txt` on the directory to install dependencies.
+
+-This project uses Selenium https://www.selenium.dev/ and Chrome or Firefox. -If you already have Chrome or Firefox on
 your machine, you don't need to do anything special to use it.
 
-I built this project to be able to run using pytest runners https://docs.pytest.org
+-I built this project to be able to run using pytest runners https://docs.pytest.org
 
-Using IntelliJ's pytest runner, you can run tests. Find the runner under /tests.
+-Using IntelliJ's pytest runner, you can run tests. Find the runner under /tests.
 
 -Note that the test runner is configured to run using the Python interpreter of the project, so you will need to define
 your python interpreter for your project, or change the runner to refer to another interpreter.
@@ -25,7 +27,7 @@ your python interpreter for your project, or change the runner to refer to anoth
 
 -Find screenshots and HTML reports in test-reports/screenshots.
 
-My Test Runner configuration is:
+My Test Runner configuration (found in /tests/ ) is:
 ```
 <component name="ProjectRunConfigurationManager">
     <configuration default="false" name="Test Runner" type="tests" factoryName="py.test" singleton="false">
