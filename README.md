@@ -11,8 +11,7 @@ Use
 your machine, you don't need to do anything special to use it.
 
 -I built this project to be able to run using pytest runners https://docs.pytest.org
-
--Using IntelliJ's pytest runner, you can run tests. Find the runner under /tests.
+-You can run tests by inputting `pytest --environment="prod" -s tests/search/  --html=test-reports/runreport.html` into the command line or, Using IntelliJ's pytest runner, you can run tests. Find the runner under /tests.
 
 -Note that the test runner is configured to run using the Python interpreter of the project, so you will need to define
 your python interpreter for your project, or change the runner to refer to another interpreter.
